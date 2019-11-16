@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 22
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -18,7 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions{
+    lintOptions {
         abortOnError false
         warning 'InvalidPackage'
     }
@@ -34,11 +34,10 @@ task makeJar(type: Copy) {
     from('build/intermediates/bundles/release/')
     into('build/outputs/')
     include('classes.jar')
-    rename ('classes.jar', 'okhttputils-2_6_2.jar')
+    rename('classes.jar', 'okhttputils-2_6_2.jar')
 }
 
 makeJar.dependsOn(clearJar, build)
-
 
 
 dependencies {
