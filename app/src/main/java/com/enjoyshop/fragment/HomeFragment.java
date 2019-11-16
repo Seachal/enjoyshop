@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -237,6 +236,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 }.getType();
                 Collection<HomeCampaignBean> enums = gson.fromJson(response,
                         collectionType);
+                if(enums==null){
+                    enums = new ArrayList<HomeCampaignBean>();
+                }
                 Iterator<HomeCampaignBean> iterator = enums.iterator();
                 while (iterator.hasNext()) {
                     HomeCampaignBean bean = iterator.next();
